@@ -7,5 +7,5 @@ import lombok.Setter;
 @Setter
 public class SettingsRequest {
 	
-	public String ibs;
+	public boolean showAmount;
 }
