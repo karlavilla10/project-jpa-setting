@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class SettingsResponse {
+public class SettingDTO extends HeaderDTO {
 	
-	private boolean showAmount;
+	private DataSettingDTO data;
 }

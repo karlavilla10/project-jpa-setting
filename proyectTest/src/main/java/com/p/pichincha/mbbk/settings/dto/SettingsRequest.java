@@ -7,6 +7,5 @@ import lombok.Setter;
 @Setter
 public class SettingsRequest {
 	
-	private String ibs;
-
+	public String ibs;
 }

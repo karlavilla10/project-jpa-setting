@@ -1,12 +1,10 @@
 package com.p.pichincha.mbbk.settings.dao;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
 import com.p.pichincha.mbbk.settings.model.Setting;
 
-public interface IsettingDAO {
+public interface IsettingDAO extends JpaRepository<Setting, String> {
 	
-	//Se declara metodos para consultar y actualizar en la BD
-	public Setting getSettingCustomer(String ibs);
-	public void settingCustomerUpdate(String ibs, boolean showAmount);
-	public void insertSetting(Setting setting);
-
+	Setting findByIbs(String ibs);
 }
