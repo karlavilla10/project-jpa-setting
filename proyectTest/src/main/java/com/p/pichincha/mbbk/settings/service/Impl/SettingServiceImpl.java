@@ -34,6 +34,7 @@ public class SettingServiceImpl implements ISettingService {
 	}
 	
 	@Override 
+<<<<<<< HEAD
 	public DataSettingDTO updateSetting(String ibs, Map<String, Object> body) throws Exception {
 		
 		ObjectMapper mapper = new ObjectMapper();
@@ -45,6 +46,19 @@ public class SettingServiceImpl implements ISettingService {
 		settingDTO.setData(data);
 		
 		return data;
+=======
+	public SettingDTO updateSetting(String ibs, SettingsRequest settingsRequest) {
+		
+		SettingDTO settingResponse = new SettingDTO();
+		Setting setting = new Setting();
+		setting.setIbs(ibs);
+		setting.setShowAmount(settingsRequest.isShowAmount());
+		setting = settingDao.save(setting);
+		DataSettingDTO data = new DataSettingDTO();
+		settingResponse.setData(data);
+		
+		return settingResponse;
+>>>>>>> master
 		
 	}
 }
