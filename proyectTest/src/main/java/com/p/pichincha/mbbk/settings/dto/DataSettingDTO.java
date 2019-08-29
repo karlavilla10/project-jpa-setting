@@ -12,12 +12,9 @@ import lombok.NoArgsConstructor;
 public class DataSettingDTO {
 	
 	private boolean showAmount;
-<<<<<<< HEAD
 	
 	public DataSettingDTO(Setting setting) {
 		
 		this.showAmount = setting.isShowAmount();
 	}
-=======
->>>>>>> master
 }
