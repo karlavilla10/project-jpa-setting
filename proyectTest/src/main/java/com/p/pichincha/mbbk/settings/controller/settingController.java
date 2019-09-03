@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.p.pichincha.mbbk.settings.dto.DataSettingDTO;
+import com.p.pichincha.mbbk.settings.dto.HeaderDTO;
 import com.p.pichincha.mbbk.settings.dto.SettingDTO;
 import com.p.pichincha.mbbk.settings.service.ISettingService;
 
@@ -38,14 +39,15 @@ public class settingController {
 	}
 	
 	@PatchMapping(value = "/{ibs}/setting", produces = {MediaType.APPLICATION_STREAM_JSON_VALUE, MediaType.APPLICATION_JSON_VALUE}, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public SettingDTO updateSetting(@PathVariable("ibs") String ibs,
+	public HeaderDTO updateSetting(@PathVariable("ibs") String ibs,
 			@RequestBody Map<String, Object> updates) throws Exception {
 		
-		SettingDTO settingDTO = new SettingDTO();
-		DataSettingDTO dataSetting = settingService.updateSetting(ibs, updates);
-		settingDTO.setData(dataSetting);
+		HeaderDTO headerDTO = new HeaderDTO();
+		headerDTO = settingService.updateSetting(ibs, updates);
+		headerDTO.setCode("000000");
+		headerDTO.setDescription("Se realizó correctamente");
 		
-		return settingDTO;
+		return headerDTO;
 		
 	}
 

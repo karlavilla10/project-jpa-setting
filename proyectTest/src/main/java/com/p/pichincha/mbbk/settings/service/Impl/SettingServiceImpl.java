@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.p.pichincha.mbbk.settings.dao.IsettingDAO;
 import com.p.pichincha.mbbk.settings.dto.DataSettingDTO;
+import com.p.pichincha.mbbk.settings.dto.HeaderDTO;
 import com.p.pichincha.mbbk.settings.dto.SettingDTO;
 import com.p.pichincha.mbbk.settings.dto.SettingsRequest;
 import com.p.pichincha.mbbk.settings.model.Setting;
@@ -34,17 +35,18 @@ public class SettingServiceImpl implements ISettingService {
 	}
 	
 	@Override 
-	public DataSettingDTO updateSetting(String ibs, Map<String, Object> body) throws Exception {
+	public HeaderDTO updateSetting(String ibs, Map<String, Object> body) throws Exception {
 		
 		ObjectMapper mapper = new ObjectMapper();
-		SettingDTO settingDTO = new SettingDTO();
+		//SettingDTO settingDTO = new SettingDTO();
+		HeaderDTO headerDTO = new HeaderDTO();
 		Setting setting = settingDao.findByIbs(ibs);
 		mapper.updateValue(setting, body);
 		setting = settingDao.save(setting);
-		DataSettingDTO data = new DataSettingDTO(setting);
-		settingDTO.setData(data);
+//		DataSettingDTO data = new DataSettingDTO(setting);
+//		settingDTO.setData(data);
 		
-		return data;
+		return headerDTO;
 		
 	}
 }
