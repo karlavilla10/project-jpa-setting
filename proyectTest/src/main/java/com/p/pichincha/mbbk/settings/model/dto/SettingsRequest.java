@@ -1,4 +1,4 @@
-package com.p.pichincha.mbbk.settings.dto;
+package com.p.pichincha.mbbk.settings.model.dto;
 
 import lombok.Getter;
 import lombok.Setter;

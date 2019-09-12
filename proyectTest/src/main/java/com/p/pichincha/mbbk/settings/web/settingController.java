@@ -1,4 +1,4 @@
-package com.p.pichincha.mbbk.settings.controller;
+package com.p.pichincha.mbbk.settings.web;
 
 import java.util.Map;
 
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.p.pichincha.mbbk.settings.dto.DataSettingDTO;
-import com.p.pichincha.mbbk.settings.dto.HeaderDTO;
-import com.p.pichincha.mbbk.settings.dto.SettingDTO;
-import com.p.pichincha.mbbk.settings.service.ISettingService;
+import com.p.pichincha.mbbk.settings.business.ISettingService;
+import com.p.pichincha.mbbk.settings.model.dto.DataSettingDTO;
+import com.p.pichincha.mbbk.settings.model.dto.HeaderDTO;
+import com.p.pichincha.mbbk.settings.model.dto.SettingDTO;
 
 @RestController
 @RequestMapping("/support/mbbk/v1.0/config/persons")
@@ -38,7 +38,9 @@ public class settingController {
 		return settingDTO;
 	}
 	
-	@PatchMapping(value = "/{ibs}/setting", produces = {MediaType.APPLICATION_STREAM_JSON_VALUE, MediaType.APPLICATION_JSON_VALUE}, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@PatchMapping(value = "/{ibs}/setting", produces = {MediaType.APPLICATION_STREAM_JSON_VALUE, 
+			MediaType.APPLICATION_JSON_VALUE}, consumes = MediaType.APPLICATION_JSON_VALUE)
+	
 	public HeaderDTO updateSetting(@PathVariable("ibs") String ibs,
 			@RequestBody Map<String, Object> updates) throws Exception {
 		
